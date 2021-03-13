@@ -1,12 +1,20 @@
-﻿using System;
+﻿using ProjectPatterns.Inheritance;
+using ProjectPatterns.Inheritance.Flying;
 
 namespace ProjectPatterns
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Duck wild = new WildDuck();
+            wild.InvokeQuack();
+            wild.InvokeFly();
+
+            Duck model = new DuckModel();
+            model.InvokeFly();
+            model.SetFlying(new FlyWithRocketPropulsion());
+            model.InvokeFly();
         }
     }
 }
