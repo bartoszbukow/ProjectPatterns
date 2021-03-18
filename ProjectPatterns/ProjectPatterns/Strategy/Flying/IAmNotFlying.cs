@@ -1,7 +1,7 @@
-﻿using ProjectPatterns.Inheritance.Abstract;
+﻿using ProjectPatterns.Strategy.Abstract;
 using System;
 
-namespace ProjectPatterns.Inheritance.Flying
+namespace ProjectPatterns.Strategy.Flying
 {
     public class IAmNotFlying : IFlying
     {

@@ -1,5 +1,5 @@
-﻿using ProjectPatterns.Inheritance;
-using ProjectPatterns.Inheritance.Flying;
+﻿using ProjectPatterns.Strategy;
+using ProjectPatterns.Strategy.Flying;
 
 namespace ProjectPatterns
 {
@@ -7,14 +7,15 @@ namespace ProjectPatterns
     {
         static void Main()
         {
-            Duck wild = new WildDuck();
-            wild.InvokeQuack();
-            wild.InvokeFly();
+            //Strategy
+            //Duck wild = new WildDuck();
+            //wild.InvokeQuack();
+            //wild.InvokeFly();
 
-            Duck model = new DuckModel();
-            model.InvokeFly();
-            model.SetFlying(new FlyWithRocketPropulsion());
-            model.InvokeFly();
+            //Duck model = new DuckModel();
+            //model.InvokeFly();
+            //model.SetFlying(new FlyWithRocketPropulsion());
+            //model.InvokeFly();
         }
     }
 }

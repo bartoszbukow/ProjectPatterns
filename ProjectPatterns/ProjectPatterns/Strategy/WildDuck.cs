@@ -1,8 +1,8 @@
-﻿using ProjectPatterns.Inheritance.Flying;
-using ProjectPatterns.Inheritance.Quack;
+﻿using ProjectPatterns.Strategy.Flying;
+using ProjectPatterns.Strategy.Quack;
 using System;
 
-namespace ProjectPatterns.Inheritance
+namespace ProjectPatterns.Strategy
 {
     public class WildDuck : Duck
     {

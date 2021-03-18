@@ -1,7 +1,7 @@
-﻿using ProjectPatterns.Inheritance.Abstract;
+﻿using ProjectPatterns.Strategy.Abstract;
 using System;
 
-namespace ProjectPatterns.Inheritance.Quack
+namespace ProjectPatterns.Strategy.Quack
 {
     class DoQuack : IQuacking
     {

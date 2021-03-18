@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectPatterns.Inheritance.Abstract
+namespace ProjectPatterns.Strategy.Abstract
 {
     public interface IQuacking
     {
