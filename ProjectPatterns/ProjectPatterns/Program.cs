@@ -1,6 +1,8 @@
 ﻿using ProjectPatterns.Decorator.Abstract;
 using ProjectPatterns.Decorator.Additives;
 using ProjectPatterns.Decorator.Drinks;
+using ProjectPatterns.Factory.Abstract;
+using ProjectPatterns.Factory.Factories;
 using ProjectPatterns.Observer;
 using ProjectPatterns.Strategy;
 using ProjectPatterns.Strategy.Flying;
@@ -12,7 +14,7 @@ namespace ProjectPatterns
     {
         static void Main()
         {
-            //Strategy
+            #region Strategy
             //Duck wild = new WildDuck();
             //wild.InvokeQuack();
             //wild.InvokeFly();
@@ -21,32 +23,45 @@ namespace ProjectPatterns
             //model.InvokeFly();
             //model.SetFlying(new FlyWithRocketPropulsion());
             //model.InvokeFly();
+            #endregion
 
-
-            //Observer
+            #region Observer
             //WeatherData weatherData = new WeatherData();
             //DisplayCurrentConditional displayCurrentConditional = new DisplayCurrentConditional(weatherData);
 
             //weatherData.SetReadings(26.6f, 65, 1013.1f);
+            #endregion
 
+            #region Decorator
+            //    Drink drink = new Espresso();
+            //    Console.WriteLine($"{drink.GetDescription()} {drink.Expense()}zl");
 
-            //Decorator
-            Drink drink = new Espresso();
-            Console.WriteLine($"{drink.GetDescription()} {drink.Expense()}zl");
+            //    Drink drink2 = new StrongRoasted();
+            //    drink2 = new Chocolate(drink2);
+            //    drink2 = new Chocolate(drink2);
+            //    drink2 = new WhippedCream(drink2);
 
-            Drink drink2 = new StrongRoasted();
-            drink2 = new Chocolate(drink2);
-            drink2 = new Chocolate(drink2);
-            drink2 = new WhippedCream(drink2);
+            //    Console.WriteLine($"{drink2.GetDescription()} {drink2.Expense()}zl");
 
-            Console.WriteLine($"{drink2.GetDescription()} {drink2.Expense()}zl");
+            //    Drink drink3 = new StarCafeSpecial();
+            //    drink3 = new SoyMilk(drink3);
+            //    drink3 = new Chocolate(drink3);
+            //    drink3 = new WhippedCream(drink3);
 
-            Drink drink3 = new StarCafeSpecial();
-            drink3 = new SoyMilk(drink3);
-            drink3 = new Chocolate(drink3);
-            drink3 = new WhippedCream(drink3);
+            //    Console.WriteLine($"{drink3.GetDescription()} {drink3.Expense()}zl");
+            //}
+            #endregion
 
-            Console.WriteLine($"{drink3.GetDescription()} {drink3.Expense()}zl");
+            #region Factory
+            Pizzeria wloska = new ItalianPizzeria();
+            Pizzeria amerykanska = new AmericanPizzeria();
+
+            Pizza pizza = wloska.OrderPizza("serowa");
+            Console.WriteLine($"Eryk zamowil: {pizza.GetName()}");
+
+            pizza = amerykanska.OrderPizza("serowa");
+            Console.WriteLine($"Jacek zamowil: {pizza.GetName()}");
+            #endregion
         }
     }
 }
