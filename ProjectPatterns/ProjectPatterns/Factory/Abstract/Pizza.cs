@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using ProjectPatterns.Factory.Abstract.Ingredients;
+using System;
+using System.Collections.Generic;
 
 namespace ProjectPatterns.Factory.Abstract
 {
     public abstract class Pizza
     {
         public string name;
-        public string cake;
-        public string sauce;
-        public ArrayList toppings = new ArrayList();
+        public ICake cake;
+        public ISauce sauce;
+        public List<IVegetables> Vegetables;
+        public ICheese Cheese;
+        public IPepperoni Pepperoni;
+        public IMussels Mussels;
 
-        public void Preparation()
-        {
-            Console.WriteLine($"Przygotowywanie: {name}");
-            Console.WriteLine("Wyrabianie ciasta...");
-            Console.WriteLine("Dodawanie sosu...");
-            Console.WriteLine("Dodatki: ");
-
-            for(int i = 0; i < toppings.Count; i++)
-            {
-                Console.WriteLine($"   {toppings[i]}");
-            }
-        }
+        public abstract void Preparation();
 
         public virtual void Baking()
         {

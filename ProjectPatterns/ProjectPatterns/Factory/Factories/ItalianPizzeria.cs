@@ -5,18 +5,25 @@ namespace ProjectPatterns.Factory.Factories
 {
     public class ItalianPizzeria : Pizzeria
     {
-        public override Pizza CreatePizza(string type)
+        protected override Pizza CreatePizza(string type)
         {
+            Pizza pizza = null;
+            IPizzaIngredientsFactory PizzaIngredientsFactory = new ItalianPizzaIngredientsFactory();
+
             switch (type)
             {
                 case "serowa":
-                    return new ItalianCheesePizza();
+                    pizza = new CheesePizza(PizzaIngredientsFactory);
+                    pizza.name = "Wloska pizza serowa";
+                    break;
                 case "wagetarianska":
                 case "owoce morza":
                 case "pepperoni":
                 default:
-                    return null;
+                    break;
             }
+
+            return pizza;
         }
     }
 }

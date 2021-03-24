@@ -59,8 +59,8 @@ namespace ProjectPatterns
             Pizza pizza = wloska.OrderPizza("serowa");
             Console.WriteLine($"Eryk zamowil: {pizza.GetName()}");
 
-            pizza = amerykanska.OrderPizza("serowa");
-            Console.WriteLine($"Jacek zamowil: {pizza.GetName()}");
+            //pizza = amerykanska.OrderPizza("serowa");
+            //Console.WriteLine($"Jacek zamowil: {pizza.GetName()}");
             #endregion
         }
     }

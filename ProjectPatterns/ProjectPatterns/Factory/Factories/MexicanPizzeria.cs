@@ -5,7 +5,7 @@ namespace ProjectPatterns.Factory.Factories
 {
     public class MexicanPizzeria : Pizzeria
     {
-        public override Pizza CreatePizza(string type)
+        protected override Pizza CreatePizza(string type)
         {
             switch (type)
             {

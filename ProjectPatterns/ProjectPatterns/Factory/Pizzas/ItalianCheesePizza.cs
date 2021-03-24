@@ -7,10 +7,11 @@ namespace ProjectPatterns.Factory.Pizzas
         public ItalianCheesePizza()
         {
             name = "Wloska pizza serowa z sosem Marinara";
-            cake = "Cienkie kruche ciasto";
-            sauce = "Sos Marinara";
+        }
 
-            toppings.Add("Tarty ser Reggiano");
+        public override void Preparation()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
