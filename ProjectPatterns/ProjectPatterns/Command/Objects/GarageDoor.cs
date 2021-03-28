@@ -8,5 +8,10 @@ namespace ProjectPatterns.Command.Objects
         {
             Console.WriteLine("Drzwi garazu otwarte");
         }
+
+        public void Close()
+        {
+            Console.WriteLine("Drzwi garazu zakmniete");
+        }
     }
 }

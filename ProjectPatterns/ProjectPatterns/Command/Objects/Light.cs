@@ -8,5 +8,10 @@ namespace ProjectPatterns.Command.Objects
         {
             Console.WriteLine("Swiatlo wlaczone");
         }
+
+        public void TurnOff()
+        {
+            Console.WriteLine("Swiatlo wylaczone");
+        }
     }
 }

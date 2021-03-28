@@ -67,16 +67,42 @@ namespace ProjectPatterns
             #endregion
 
             #region Command
-            MiniRemoteControl remoteControl = new MiniRemoteControl();
+            //MiniRemoteControl remoteControl = new MiniRemoteControl();
+            //Light light = new Light();
+            //GarageDoor garageDoor = new GarageDoor();
+            //TurnOnLightCommand turnOnLight = new TurnOnLightCommand(light);
+            //OpenGarageDoorCommand openGarageDoor = new OpenGarageDoorCommand(garageDoor);
+
+            //remoteControl.SetCommand(turnOnLight);
+            //remoteControl.ButtonHasBeenPressed();
+            //remoteControl.SetCommand(openGarageDoor);
+            //remoteControl.ButtonHasBeenPressed();
+
+            SuperRemoteControl superRemoteControl = new SuperRemoteControl();
+
             Light light = new Light();
             GarageDoor garageDoor = new GarageDoor();
-            TurnOnLightCommand turnOnLight = new TurnOnLightCommand(light);
-            OpenGarageDoorCommand openGarageDoor = new OpenGarageDoorCommand(garageDoor);
+            StereoSystem stereoSystem = new StereoSystem();
 
-            remoteControl.SetCommand(turnOnLight);
-            remoteControl.ButtonHasBeenPressed();
-            remoteControl.SetCommand(openGarageDoor);
-            remoteControl.ButtonHasBeenPressed();
+            TurnOnLightCommand turnOnLight = new TurnOnLightCommand(light);
+            TurnOffLightCommand turnOffLight = new TurnOffLightCommand(light);
+            OpenGarageDoorCommand openGarageDoor = new OpenGarageDoorCommand(garageDoor);
+            CloseGarageDoorCommand closeGarageDoor = new CloseGarageDoorCommand(garageDoor);
+            TurnOnStereoSystemCDCommand turnOnStereoSystemCD = new TurnOnStereoSystemCDCommand(stereoSystem);
+            TurnOffStereoSystemCDCommand turnOffStereoSystemCD = new TurnOffStereoSystemCDCommand(stereoSystem);
+
+            superRemoteControl.SetCommand(0, turnOnLight, turnOffLight);
+            superRemoteControl.SetCommand(1, openGarageDoor, closeGarageDoor);
+            superRemoteControl.SetCommand(2, turnOnStereoSystemCD, turnOffStereoSystemCD);
+
+            superRemoteControl.OnTurnOnButtonPressed(0);
+            superRemoteControl.OnTurnOffButtonPressed(0);
+
+            superRemoteControl.OnTurnOnButtonPressed(1);
+            superRemoteControl.OnTurnOffButtonPressed(1);
+
+            superRemoteControl.OnTurnOnButtonPressed(2);
+            superRemoteControl.OnTurnOffButtonPressed(2);
 
             #endregion
         }
