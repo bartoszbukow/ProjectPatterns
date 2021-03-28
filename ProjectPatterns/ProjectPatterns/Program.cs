@@ -1,4 +1,7 @@
-﻿using ProjectPatterns.Decorator.Abstract;
+﻿using ProjectPatterns.Command;
+using ProjectPatterns.Command.Commands;
+using ProjectPatterns.Command.Objects;
+using ProjectPatterns.Decorator.Abstract;
 using ProjectPatterns.Decorator.Additives;
 using ProjectPatterns.Decorator.Drinks;
 using ProjectPatterns.Factory.Abstract;
@@ -53,14 +56,28 @@ namespace ProjectPatterns
             #endregion
 
             #region Factory
-            Pizzeria wloska = new ItalianPizzeria();
-            Pizzeria amerykanska = new AmericanPizzeria();
+            //Pizzeria wloska = new ItalianPizzeria();
+            //Pizzeria amerykanska = new AmericanPizzeria();
 
-            Pizza pizza = wloska.OrderPizza("serowa");
-            Console.WriteLine($"Eryk zamowil: {pizza.GetName()}");
+            //Pizza pizza = wloska.OrderPizza("serowa");
+            //Console.WriteLine($"Eryk zamowil: {pizza.GetName()}");
 
             //pizza = amerykanska.OrderPizza("serowa");
             //Console.WriteLine($"Jacek zamowil: {pizza.GetName()}");
+            #endregion
+
+            #region Command
+            MiniRemoteControl remoteControl = new MiniRemoteControl();
+            Light light = new Light();
+            GarageDoor garageDoor = new GarageDoor();
+            TurnOnLightCommand turnOnLight = new TurnOnLightCommand(light);
+            OpenGarageDoorCommand openGarageDoor = new OpenGarageDoorCommand(garageDoor);
+
+            remoteControl.SetCommand(turnOnLight);
+            remoteControl.ButtonHasBeenPressed();
+            remoteControl.SetCommand(openGarageDoor);
+            remoteControl.ButtonHasBeenPressed();
+
             #endregion
         }
     }
