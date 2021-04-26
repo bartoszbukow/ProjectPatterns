@@ -9,7 +9,9 @@ using ProjectPatterns.Factory.Factories;
 using ProjectPatterns.Observer;
 using ProjectPatterns.Strategy;
 using ProjectPatterns.Strategy.Flying;
+using ProjectPatterns.Adapter;
 using System;
+using ProjectPatterns.Adapter.Abstract;
 
 namespace ProjectPatterns
 {
@@ -78,34 +80,52 @@ namespace ProjectPatterns
             //remoteControl.SetCommand(openGarageDoor);
             //remoteControl.ButtonHasBeenPressed();
 
-            SuperRemoteControl superRemoteControl = new SuperRemoteControl();
+            //SuperRemoteControl superRemoteControl = new SuperRemoteControl();
 
-            Light light = new Light();
-            GarageDoor garageDoor = new GarageDoor();
-            StereoSystem stereoSystem = new StereoSystem();
+            //Light light = new Light();
+            //GarageDoor garageDoor = new GarageDoor();
+            //StereoSystem stereoSystem = new StereoSystem();
 
-            TurnOnLightCommand turnOnLight = new TurnOnLightCommand(light);
-            TurnOffLightCommand turnOffLight = new TurnOffLightCommand(light);
-            OpenGarageDoorCommand openGarageDoor = new OpenGarageDoorCommand(garageDoor);
-            CloseGarageDoorCommand closeGarageDoor = new CloseGarageDoorCommand(garageDoor);
-            TurnOnStereoSystemCDCommand turnOnStereoSystemCD = new TurnOnStereoSystemCDCommand(stereoSystem);
-            TurnOffStereoSystemCDCommand turnOffStereoSystemCD = new TurnOffStereoSystemCDCommand(stereoSystem);
+            //TurnOnLightCommand turnOnLight = new TurnOnLightCommand(light);
+            //TurnOffLightCommand turnOffLight = new TurnOffLightCommand(light);
+            //OpenGarageDoorCommand openGarageDoor = new OpenGarageDoorCommand(garageDoor);
+            //CloseGarageDoorCommand closeGarageDoor = new CloseGarageDoorCommand(garageDoor);
+            //TurnOnStereoSystemCDCommand turnOnStereoSystemCD = new TurnOnStereoSystemCDCommand(stereoSystem);
+            //TurnOffStereoSystemCDCommand turnOffStereoSystemCD = new TurnOffStereoSystemCDCommand(stereoSystem);
 
-            superRemoteControl.SetCommand(0, turnOnLight, turnOffLight);
-            superRemoteControl.SetCommand(1, openGarageDoor, closeGarageDoor);
-            superRemoteControl.SetCommand(2, turnOnStereoSystemCD, turnOffStereoSystemCD);
+            //superRemoteControl.SetCommand(0, turnOnLight, turnOffLight);
+            //superRemoteControl.SetCommand(1, openGarageDoor, closeGarageDoor);
+            //superRemoteControl.SetCommand(2, turnOnStereoSystemCD, turnOffStereoSystemCD);
 
-            superRemoteControl.OnTurnOnButtonPressed(0);
-            superRemoteControl.OnTurnOffButtonPressed(0);
-            superRemoteControl.OnDrawBackButtonPressed();
+            //superRemoteControl.OnTurnOnButtonPressed(0);
+            //superRemoteControl.OnTurnOffButtonPressed(0);
+            //superRemoteControl.OnDrawBackButtonPressed();
 
-            superRemoteControl.OnTurnOnButtonPressed(1);
-            superRemoteControl.OnTurnOffButtonPressed(1);
-            superRemoteControl.OnDrawBackButtonPressed();
+            //superRemoteControl.OnTurnOnButtonPressed(1);
+            //superRemoteControl.OnTurnOffButtonPressed(1);
+            //superRemoteControl.OnDrawBackButtonPressed();
 
-            superRemoteControl.OnTurnOnButtonPressed(2);
-            superRemoteControl.OnTurnOffButtonPressed(2);
+            //superRemoteControl.OnTurnOnButtonPressed(2);
+            //superRemoteControl.OnTurnOffButtonPressed(2);
 
+            #endregion
+
+            #region Adapter
+            //IDuck duck = new Adapter.WildDuck();
+            //ITurkey turkey = new WildTurkey();
+            //IDuck turkeyAdapter = new TurkeyAdapter(turkey);
+
+            //Console.WriteLine("Inkdyk powiada tak...");
+            //turkey.Gobble();
+            //turkey.Fly();
+
+            //Console.WriteLine("Kaczka powiada tak...");
+            //duck.Quack();
+            //duck.Fly();
+
+            //Console.WriteLine("A indyk adapter powiada tak...");
+            //turkeyAdapter.Quack();
+            //turkeyAdapter.Fly();
             #endregion
         }
     }
