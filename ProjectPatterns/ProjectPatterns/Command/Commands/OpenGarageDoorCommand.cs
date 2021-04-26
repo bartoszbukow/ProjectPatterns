@@ -16,5 +16,10 @@ namespace ProjectPatterns.Command.Commands
         {
             _garageDoor.Open();
         }
+
+        public void UnExecute()
+        {
+            _garageDoor.Close();
+        }
     }
 }

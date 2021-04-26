@@ -16,5 +16,12 @@ namespace ProjectPatterns.Command.Commands
         {
             _stereoSystem.TurnOff();
         }
+
+        public void UnExecute()
+        {
+            _stereoSystem.TurnOn();
+            _stereoSystem.SetCD();
+            _stereoSystem.SetVolume(11);
+        }
     }
 }

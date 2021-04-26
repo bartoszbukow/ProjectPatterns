@@ -97,9 +97,11 @@ namespace ProjectPatterns
 
             superRemoteControl.OnTurnOnButtonPressed(0);
             superRemoteControl.OnTurnOffButtonPressed(0);
+            superRemoteControl.OnDrawBackButtonPressed();
 
             superRemoteControl.OnTurnOnButtonPressed(1);
             superRemoteControl.OnTurnOffButtonPressed(1);
+            superRemoteControl.OnDrawBackButtonPressed();
 
             superRemoteControl.OnTurnOnButtonPressed(2);
             superRemoteControl.OnTurnOffButtonPressed(2);

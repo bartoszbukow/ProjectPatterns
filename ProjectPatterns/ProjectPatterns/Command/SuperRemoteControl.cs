@@ -7,6 +7,7 @@ namespace ProjectPatterns.Command
     {
         private readonly ICommand[] TurnOnCommands;
         private readonly ICommand[] TurnOffCommands;
+        private ICommand DrawBackCommand;
 
         public SuperRemoteControl()
         {
@@ -20,6 +21,8 @@ namespace ProjectPatterns.Command
                 TurnOnCommands[i] = noCommand;
                 TurnOffCommands[i] = noCommand;
             }
+
+            DrawBackCommand = noCommand;
         }
 
         public void SetCommand(int slot, ICommand turnOnCommand, ICommand turnOffCommand)
@@ -31,11 +34,18 @@ namespace ProjectPatterns.Command
         public void OnTurnOnButtonPressed(int slot)
         {
             TurnOnCommands[slot].Execute();
+            DrawBackCommand = TurnOnCommands[slot];
         }
 
         public void OnTurnOffButtonPressed(int slot)
         {
             TurnOffCommands[slot].Execute();
+            DrawBackCommand = TurnOffCommands[slot];
+        }
+
+        public void OnDrawBackButtonPressed()
+        {
+            DrawBackCommand.UnExecute();
         }
     }
 }

@@ -16,5 +16,10 @@ namespace ProjectPatterns.Command.Commands
         {
             _light.TurnOn();
         }
+
+        public void UnExecute()
+        {
+            _light.TurnOff();
+        }
     }
 }

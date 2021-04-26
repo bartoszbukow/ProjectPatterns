@@ -8,5 +8,10 @@ namespace ProjectPatterns.Command.Commands
         {
             
         }
+
+        public void UnExecute()
+        {
+           
+        }
     }
 }
