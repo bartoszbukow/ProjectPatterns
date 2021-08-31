@@ -12,6 +12,7 @@ using ProjectPatterns.Strategy.Flying;
 using ProjectPatterns.Adapter;
 using System;
 using ProjectPatterns.Adapter.Abstract;
+using ProjectPatterns.Iterator;
 
 namespace ProjectPatterns
 {
@@ -126,6 +127,16 @@ namespace ProjectPatterns
             //Console.WriteLine("A indyk adapter powiada tak...");
             //turkeyAdapter.Quack();
             //turkeyAdapter.Fly();
+            #endregion
+
+            #region Iterator
+            var pancakeHouseMenu = new PancakeHouseMenu();
+            var dinerMenu = new DinerMenu();
+
+            var waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+
+            waitress.PrintMenu();
+
             #endregion
         }
     }
