@@ -13,6 +13,8 @@ using ProjectPatterns.Adapter;
 using System;
 using ProjectPatterns.Adapter.Abstract;
 using ProjectPatterns.Iterator;
+using ProjectPatterns.Composite.Abstract;
+using ProjectPatterns.Composite;
 
 namespace ProjectPatterns
 {
@@ -130,13 +132,32 @@ namespace ProjectPatterns
             #endregion
 
             #region Iterator
-            var pancakeHouseMenu = new PancakeHouseMenu();
-            var dinerMenu = new DinerMenu();
+            //var pancakeHouseMenu = new PancakeHouseMenu();
+            //var dinerMenu = new DinerMenu();
 
-            var waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+            //var waitress = new Waitress(pancakeHouseMenu, dinerMenu);
 
-            waitress.PrintMenu();
+            //waitress.PrintMenu();
+            #endregion
 
+            #region Composite
+            var pancakeHouseMenu = new Menu("MENU PANCAKE HOUSE", "Śniadania");
+            var dinerMenu = new Menu("MENU RESTAURACJI DINER", "Lunch");
+            var uJackaMenu = new Menu("MENU U JACKA", "Obiady");
+            var dessertsMenu = new Menu("MENU DESERÓW", "Desery, oczywiście!");
+
+            MenuComponent allComponents = new Menu("WSZYSTKIE MENU", "Połączone menu");
+
+            allComponents.Add(pancakeHouseMenu);
+            allComponents.Add(dinerMenu);
+            allComponents.Add(uJackaMenu);
+
+            dinerMenu.Add(new Composite.MenuPosition("Spaghetti", "Makaron spaghetti z sosem marinara i kromka chleba na zakwasie", true, 3.89m));
+            dinerMenu.Add(dessertsMenu);
+            dessertsMenu.Add(new Composite.MenuPosition("Szarlotka", "Szarlotka z lodami waniliowymi", true, 1.59m));
+
+            var waitress = new Composite.Waitress(allComponents);
+            waitress.Print();
             #endregion
         }
     }
