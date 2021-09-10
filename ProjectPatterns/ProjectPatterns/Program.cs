@@ -15,6 +15,7 @@ using ProjectPatterns.Adapter.Abstract;
 using ProjectPatterns.Iterator;
 using ProjectPatterns.Composite.Abstract;
 using ProjectPatterns.Composite;
+using ProjectPatterns.State;
 
 namespace ProjectPatterns
 {
@@ -141,23 +142,41 @@ namespace ProjectPatterns
             #endregion
 
             #region Composite
-            var pancakeHouseMenu = new Menu("MENU PANCAKE HOUSE", "Śniadania");
-            var dinerMenu = new Menu("MENU RESTAURACJI DINER", "Lunch");
-            var uJackaMenu = new Menu("MENU U JACKA", "Obiady");
-            var dessertsMenu = new Menu("MENU DESERÓW", "Desery, oczywiście!");
+            //var pancakeHouseMenu = new Menu("MENU PANCAKE HOUSE", "Śniadania");
+            //var dinerMenu = new Menu("MENU RESTAURACJI DINER", "Lunch");
+            //var uJackaMenu = new Menu("MENU U JACKA", "Obiady");
+            //var dessertsMenu = new Menu("MENU DESERÓW", "Desery, oczywiście!");
 
-            MenuComponent allComponents = new Menu("WSZYSTKIE MENU", "Połączone menu");
+            //MenuComponent allComponents = new Menu("WSZYSTKIE MENU", "Połączone menu");
 
-            allComponents.Add(pancakeHouseMenu);
-            allComponents.Add(dinerMenu);
-            allComponents.Add(uJackaMenu);
+            //allComponents.Add(pancakeHouseMenu);
+            //allComponents.Add(dinerMenu);
+            //allComponents.Add(uJackaMenu);
 
-            dinerMenu.Add(new Composite.MenuPosition("Spaghetti", "Makaron spaghetti z sosem marinara i kromka chleba na zakwasie", true, 3.89m));
-            dinerMenu.Add(dessertsMenu);
-            dessertsMenu.Add(new Composite.MenuPosition("Szarlotka", "Szarlotka z lodami waniliowymi", true, 1.59m));
+            //dinerMenu.Add(new Composite.MenuPosition("Spaghetti", "Makaron spaghetti z sosem marinara i kromka chleba na zakwasie", true, 3.89m));
+            //dinerMenu.Add(dessertsMenu);
+            //dessertsMenu.Add(new Composite.MenuPosition("Szarlotka", "Szarlotka z lodami waniliowymi", true, 1.59m));
 
-            var waitress = new Composite.Waitress(allComponents);
-            waitress.Print();
+            //var waitress = new Composite.Waitress(allComponents);
+            //waitress.Print();
+            #endregion
+
+            #region State
+            var vendingMachine = new VendingMachine(5);
+
+            Console.WriteLine(vendingMachine);
+
+            vendingMachine.InsertCoin();
+            vendingMachine.TwistKnob();
+
+            Console.WriteLine(vendingMachine);
+
+            vendingMachine.InsertCoin();
+            vendingMachine.TwistKnob();
+            vendingMachine.InsertCoin();
+            vendingMachine.TwistKnob();
+
+            Console.WriteLine(vendingMachine);
             #endregion
         }
     }
